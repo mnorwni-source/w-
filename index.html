@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>流浪者桌宠</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="pet">
+
+
+    <div class="character">
+
+        <img src="images/wanderer.png" width="200">
+
+        <button onclick="sayHello()">
+            戳一下
+        </button>
+
+    </div>
+
+
+    <div id="clock">
+        00:00:00
+    </div>
+
+
+    <!-- A / B 界面 -->
+
+    <div id="stats">
+
+
+        <!-- A 界面 -->
+
+        <div id="normalStats">
+
+            <div id="gpuTemperature">
+                🎮 GPU: --
+            </div>
+
+        </div>
+
+
+        <!-- B 界面 -->
+
+        <div id="graphStats">
+
+
+            <!--
+                小流浪者
+
+                他会坐在整个图表的最上沿右侧。
+                图片本身需要是透明 PNG。
+            -->
+
+            <img
+                id="miniWanderer"
+                src="images/pet/0001.png"
+                alt=""
+            >
+
+
+            <div class="graph-title">
+                GPU TEMPERATURE
+            </div>
+
+
+            <svg
+                id="temperatureGraph"
+                viewBox="0 0 320 170"
+                preserveAspectRatio="none"
+            >
+
+
+                <!-- 坐标轴 -->
+
+                <line
+                    class="axis"
+                    x1="35"
+                    y1="10"
+                    x2="35"
+                    y2="145"
+                />
+
+
+                <line
+                    class="axis"
+                    x1="35"
+                    y1="145"
+                    x2="310"
+                    y2="145"
+                />
+
+
+                <!-- Y轴刻度 -->
+
+                <text x="5" y="18">100</text>
+
+                <text x="5" y="40">90</text>
+
+                <text x="5" y="63">80</text>
+
+                <text x="5" y="85">70</text>
+
+                <text x="5" y="107">60</text>
+
+                <text x="5" y="129">50</text>
+
+                <text x="5" y="146">40</text>
+
+
+                <!-- 温度曲线 -->
+
+                <polyline
+                    id="temperatureLine"
+                    points=""
+                />
+
+
+            </svg>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- A界面的文字 -->
+
+    <div id="dialogue">
+        ……
+    </div>
+
+
+</div>
+
+
+<!-- 右键菜单 -->
+
+<div id="contextMenu">
+
+
+    <div id="switchMode">
+        切换显示模式
+    </div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
