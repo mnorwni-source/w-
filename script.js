@@ -1,3 +1,4 @@
+
 const wandererWords = [
 
     "这世上没有纯粹的自由。风也会有吹到头的时候。",
@@ -516,6 +517,7 @@ document.addEventListener(
             防止菜单跑出窗口
         */
 
+
         const menuWidth =
             contextMenu.offsetWidth;
 
@@ -623,6 +625,7 @@ document.addEventListener(
     }
 );
 
+
 /* ================================ */
 /* B模式：小流浪者序列帧动画 */
 /* ================================ */
@@ -632,14 +635,21 @@ const miniWanderer =
     document.getElementById("miniWanderer");
 
 
-const PET_FRAME_COUNT = 48;
+/*
+    序列帧范围
+
+    0129.png
+    ↓
+    0160.png
+*/
+const PET_FRAME_START = 129;
+const PET_FRAME_END = 160;
 
 
 /*
     动画播放速度
 
-    12 FPS = 每秒播放 12 张图片
-    48 帧播放一轮 = 4 秒
+    12 FPS
 */
 const PET_FPS = 12;
 
@@ -648,7 +658,7 @@ const PET_FRAME_INTERVAL =
 
 
 /*
-    保存已经加载好的 48 张图片
+    保存已经加载好的序列帧
 */
 const petFrames = [];
 
@@ -670,7 +680,11 @@ let petAnimationReady = false;
 */
 async function preloadPetFrames() {
 
-    for (let i = 1; i <= PET_FRAME_COUNT; i++) {
+    for (
+        let i = PET_FRAME_START;
+        i <= PET_FRAME_END;
+        i++
+    ) {
 
         const frameNumber =
             String(i).padStart(4, "0");
@@ -729,12 +743,12 @@ function playPetAnimation() {
 
 
     /*
-        播放到 0048 后
-        回到 0001
+        播放到 0160 后
+        回到 0129
     */
     if (
         currentPetFrame >=
-        PET_FRAME_COUNT
+        petFrames.length
     ) {
 
         currentPetFrame = 0;
